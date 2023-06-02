@@ -1,0 +1,56 @@
+Task 1: Create Cloud Storage bucket
+
+To create a Cloud Storage bucket in Google Cloud Platform, follow these steps:
+
+Go to the Google Cloud Console (https://console.cloud.google.com).
+Select your project (or create a new project if needed) from the dropdown menu at the top of the page.
+In the navigation menu on the left, click on "Storage" and then "Browser".
+Click the "Create Bucket" button.
+Provide a unique name for your bucket. The name must be globally unique across all Google Cloud Storage buckets.
+Choose the default storage class that suits your needs. For the requirements mentioned, you can select "Regional" or "Multi-Regional".
+Select the location where you want to store your bucket. Choose a region that ensures high availability and data durability.
+Enable "Uniform" bucket-level access control if you want to manage access to objects using IAM policies.
+Click "Create" to create the bucket.
+Task 2: Upload a file into your bucket using GCP Console
+
+Go to the Google Cloud Console (https://console.cloud.google.com).
+Select your project and navigate to the Cloud Storage section as mentioned in Task 1.
+Click on your newly created bucket to open it.
+Click the "Upload Files" button.
+Select the file you want to upload from your local machine and click "Open".
+The file will begin uploading to your bucket. You can monitor the progress in the console.
+To create a folder, click on the "Create Folder" button and provide a name for the folder.
+Open the folder and click the "Upload Files" button to upload a file into the folder.
+Select the file from your local machine and click "Open". The file will be uploaded into the folder.
+Task 3: Upload a file into your bucket using gsutil
+
+If you don't have gsutil installed, follow the installation instructions provided by Google Cloud Platform (https://cloud.google.com/storage/docs/gsutil_install).
+
+Open a terminal or command prompt.
+Authenticate with your Google Cloud Platform account by running the following command and following the prompts:
+Copy code
+gcloud auth login
+Set your project ID by running the following command and replacing [PROJECT_ID] with your project ID:
+arduino
+Copy code
+gcloud config set project [PROJECT_ID]
+To upload a file into your bucket, use the following command and replace [BUCKET_NAME] with the name of your bucket:
+less
+Copy code
+gsutil cp [LOCAL_FILE_PATH] gs://[BUCKET_NAME]/
+Replace [LOCAL_FILE_PATH] with the path to the file on your local machine.
+To create a folder and upload a file into it, use the following command and replace [BUCKET_NAME] with the name of your bucket and [FOLDER_NAME] with the desired folder name:
+less
+Copy code
+gsutil cp [LOCAL_FILE_PATH] gs://[BUCKET_NAME]/[FOLDER_NAME]/
+Task 4: Remove files and then the bucket
+
+To remove files and the bucket using gsutil:
+
+Open a terminal or command prompt.
+To remove files from your bucket, use the following command and replace [BUCKET_NAME] with the name of your bucket:
+arduino
+Copy code
+gsutil rm gs://[BUCKET_NAME]/[OBJECT_PATH]
+Replace [OBJECT_PATH] with the path to the object you want to remove. You can use wildcards (*) to remove multiple objects.
+To remove the bucket, use the following command and replace [BUCKET_NAME] with
